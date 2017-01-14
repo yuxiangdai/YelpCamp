@@ -87,7 +87,13 @@ app.post("/campgrounds", function(req, res){
 
 //COMMENTS ROUTE
 app.get("/campgrounds/:id/comments/new", function(req,res){
-   res.render("comments/new");
+   Campground.findById(req.params.id, function(err,campground){
+      if(err){
+          console.log(err);
+      } else {
+          res.render("comments/new", {campground:campground});
+      }
+   });
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){

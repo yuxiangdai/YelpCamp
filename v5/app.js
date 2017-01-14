@@ -6,36 +6,11 @@ var express = require("express"),
     Comment = require("./models/comment"),
     seedDB = require("./seeds");
     
-seedDB();
 mongoose.connect("mongodb://localhost/yelp_camp");
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
-
-// Campground.create({
-//     name: "Beartooth Highway", 
-//     image: "https://farm4.staticflickr.com/3742/10759552364_a796a5560a.jpg", 
-//     description: "This is the best view in the world!"
-//     }, function(err,campground){
-//         if(err){
-//             console.log(err);
-//         } else {
-//             console.log("New campground: ")
-//             console.log(campground);
-//         }
-//     });
-
-
-var campgrounds = [
-        {name: "Salmon Creek", image: "https://farm2.staticflickr.com/1363/1342367857_2fd12531e7.jpg"},
-        {name: "Beartooth Highway", image: "https://farm4.staticflickr.com/3742/10759552364_a796a5560a.jpg"},
-        {name: "Bison's Meadows", image: "https://farm9.staticflickr.com/8161/7360193870_cc7945dfea.jpg"},
-        {name: "Salmon Creek", image: "https://farm2.staticflickr.com/1363/1342367857_2fd12531e7.jpg"},
-        {name: "Beartooth Highway", image: "https://farm4.staticflickr.com/3742/10759552364_a796a5560a.jpg"},
-        {name: "Bison's Meadows", image: "https://farm9.staticflickr.com/8161/7360193870_cc7945dfea.jpg"},
-        {name: "Salmon Creek", image: "https://farm2.staticflickr.com/1363/1342367857_2fd12531e7.jpg"},
-        {name: "Beartooth Highway", image: "https://farm4.staticflickr.com/3742/10759552364_a796a5560a.jpg"},
-        {name: "Bison's Meadows", image: "https://farm9.staticflickr.com/8161/7360193870_cc7945dfea.jpg"}
-    ]
+app.use(express.static(__dirname + "/public"));
+seedDB();
 
 app.get("/", function(req, res){
     res.render("landing");

@@ -1,1 +1,3 @@
 # YelpCamp
+
+Campground ratings website

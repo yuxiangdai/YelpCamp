@@ -1,3 +1,3 @@
 # YelpCamp
 
-Campground ratings website
+Campground ratings website made using MongoDB, Express, Node.js
